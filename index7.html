@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FriendsForever</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: #000;
+        font-family: sans-serif;
+        overflow: hidden;
+      }
+      section {
+        height: 100vh;
+        background: url('ammonlove.jpg') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        transition: background 1s ease-in-out;
+      }
+      section:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #f00, #f00, #0f0, #0ff, #ff0, #0ff);
+        mix-blend-mode: color;
+        pointer-events: none;
+        z-index: 1;
+      }
+      h1 {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        color: #ddd;
+        font-size: 2.5em;
+        letter-spacing: 0.01em;
+        z-index: 10;
+        animation: fadeInText 2s ease-out;
+      }
+      @keyframes fadeInText {
+        0% {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      h1 span {
+        opacity: 0;
+        display: inline-block;
+        animation: animate 1s linear forwards;
+      }
+      @keyframes animate {
+        0% {
+          opacity: 0;
+          transform: rotateY(90deg);
+          filter: blur(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: rotateY(0deg);
+          filter: blur(0px);
+        }
+      }
+      h1 span:nth-child(1) { animation-delay: 1s; }
+      h1 span:nth-child(2) { animation-delay: 2s; }
+      h1 span:nth-child(3) { animation-delay: 2.25s; }
+      h1 span:nth-child(4) { animation-delay: 2.5s; }
+      h1 span:nth-child(5) { animation-delay: 2.75s; }
+      h1 span:nth-child(6) { animation-delay: 3s; }
+      h1 span:nth-child(7) { animation-delay: 3.25s; }
+      h1 span:nth-child(8) { animation-delay: 3.5s; }
+      h1 span:nth-child(9) { animation-delay: 3.75s; }
+      h1 span:nth-child(10) { animation-delay: 4s; }
+      h1 span:nth-child(11) { animation-delay: 4.25s; }
+      h1 span:nth-child(12) { animation-delay: 4.5s; }
+      h1 span:nth-child(13) { animation-delay: 4.75s; }
+      h1 span:nth-child(14) { animation-delay: 5s; }
+      h1 span:nth-child(15) { animation-delay: 5.25s; }
+      h1 span:nth-child(16) { animation-delay: 5.5s; }
+      h1 span:nth-child(17) { animation-delay: 5.75s; }
+      h1 span:nth-child(18) { animation-delay: 6s; }
+      h1 span:nth-child(19) { animation-delay: 6.25s; }
+      h1 span:nth-child(20) { animation-delay: 6.5s; }
+      h1 span:nth-child(21) { animation-delay: 6.75s; }
+      h1 span:nth-child(22) { animation-delay: 7s; }
+      h1 span:nth-child(23) { animation-delay: 7.25s; }
+      h1 span:nth-child(24) { animation-delay: 7.5s; }
+      h1 span:nth-child(25) { animation-delay: 7.75s; }
+      h1 span:nth-child(26) { animation-delay: 8s; }
+
+      .message {
+        text-align: center;
+        color: #fff;
+        font-size: 1.2em;
+        margin-top: 20px;
+        position: relative;
+        z-index: 10;
+        opacity: 1; /* Ensure the initial message is visible */
+        transition: opacity 2s ease-out; /* Smooth fade-out transition */
+      }
+
+      .buttons-container {
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        bottom: 20%;
+        transform: translateY(50%);
+        z-index: 10;
+      }
+
+      .watch-video-button, .change-message-button, .play-music-button {
+        background-color: #ff5733;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none; /* Remove underline */
+      }
+
+      .watch-video-button:hover, .change-message-button:hover, .play-music-button:hover {
+        background-color: #ff6600;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <!-- The audio element is hidden initially -->
+      <audio id="background-music" src="background.mp3" loop></audio>
+
+      <h1>
+        <span>H</span>
+        <span>A</span>
+        <span>P</span>
+        <span>P</span>
+        <span>Y</span>
+        <span> </span>
+        <span>F</span>
+        <span>R</span>
+        <span>I</span>
+        <span>E</span>
+        <span>N</span>
+        <span>D</span>
+        <span>S</span>
+        <span>H</span>
+        <span>I</span>
+        <span>P</span>
+        <span> </span>
+        <span>D</span>
+        <span>A</span>
+        <span>Y</span>
+        <span> </span>
+        <span>A</span>
+        <span>M</span>
+        <span>M</span>
+        <span>O</span>
+        <span>N</span>
+      </h1>
+
+      <p class="message" id="message">
+        Before I leave, I would like to present you with a small token of appreciation 😊
+      </p>
+
+      <div class="buttons-container">
+        <a href="https://youtu.be/5ixmuCqrYPs?si=r_j3mAjo4V42EIJ5" class="watch-video-button" target="_blank" onclick="stopMusic()">
+          Watch Video
+        </a>
+        <button class="change-message-button" onclick="changeMessage()">
+          Thank You
+        </button>
+        <button class="play-music-button" onclick="playMusic()">
+          Play Music
+        </button>
+      </div>
+    </section>
+
+    <script>
+      function changeMessage() {
+        const messageElement = document.getElementById('message');
+        
+        // Apply fade-out animation to the original message
+        messageElement.style.opacity = 0; // Fade out the original message
+
+        // Wait for the fade-out to complete before changing the message
+        setTimeout(() => {
+          messageElement.innerHTML = `
+            <strong>Ammon, your love has the power to touch hearts in a way that leaves a lasting impact.</strong>
+          `;
+          messageElement.style.opacity = 1; // Fade in the new message
+        }, 2000); // Timeout should match the duration of the fade-out transition
+      }
+
+      function playMusic() {
+        const music = document.getElementById('background-music');
+        music.play();
+      }
+
+      function stopMusic() {
+        const music = document.getElementById('background-music');
+        music.pause(); // Stop the music when Watch Video button is clicked
+      }
+
+      window.onload = function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+    </script>
+  </body>
+</html>
